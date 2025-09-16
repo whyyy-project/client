@@ -17,7 +17,6 @@ require __DIR__ . '/sso_client.php';
 // Parameter ini dikirim oleh server SSO setelah user menyetujui permintaan otorisasi
 $code  = $_GET['code']  ?? null;  // Authorization code untuk ditukar dengan access token
 $state = $_GET['state'] ?? null;  // Parameter state untuk mencegah CSRF
-
 // Pastikan kedua parameter ada
 if (!$code || !$state) {
     $_SESSION['flash_error'] = 'Kode otorisasi atau state tidak ditemukan.';
@@ -48,6 +47,9 @@ try {
     
     // 2. Dapatkan informasi user menggunakan access token
     $me = sso_me($accessToken);
+header('Content-Type: application/json');
+echo json_encode($me, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+exit;
 
     // 3. Simpan informasi login ke dalam session
     $_SESSION['isLoggedIn']   = true;           // Flag status login

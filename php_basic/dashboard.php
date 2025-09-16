@@ -32,8 +32,7 @@ $role = $user['role'] ?? ($user['roles'][0] ?? 'mahasiswa');
     <p>Halo, <strong><?php echo htmlspecialchars($user['name'] ?? ''); ?></strong></p>
     <p>Email: <?php echo htmlspecialchars($user['email'] ?? ''); ?></p>
     <p>Role: <span class="badge"><?php echo htmlspecialchars($role); ?></span></p>
-
-    <?php if ($role === 'pegawai'): ?>
+      <?php if ($role === 'pegawai'): ?>
       <h3>Menu Pegawai</h3>
       <ul>
         <li>Rekap Presensi</li>

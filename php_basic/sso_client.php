@@ -183,9 +183,15 @@ function sso_me(string $accessToken): array {
         throw new RuntimeException('HTTP error: ' . $err);
     }
     $json = json_decode($body, true) ?: [];
+    $status = json_decode($status, true) ?: [];
+    $error = json_decode($err, true) ?: [];
     if ($status >= 400) {
         $msg = $json['message'] ?? $json['error'] ?? ('HTTP ' . $status);
         throw new RuntimeException('Fetch /me failed: ' . $msg);
     }
-    return $json;
+        return [
+        'data'   => $json,
+        'status' => $status,
+        'error'  => $err,
+    ];
 }
