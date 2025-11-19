@@ -4,8 +4,9 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\GirioneSSOController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TestController;
 Route::redirect("/","/dashboard");
+Route::get("/test", [TestController::class, 'redirect'])->name('test');
 
 Route::get('/login', function () {
     return view('login');
