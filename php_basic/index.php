@@ -37,7 +37,7 @@ $authorizeUrl = sso_build_authorize_url(['state' => $_SESSION['oauth_state']]);
     <?php if (!empty($_SESSION['user'])): ?>
       <p>Anda sudah login sebagai <strong><?php echo htmlspecialchars($_SESSION['user']['name'] ?? ''); ?></strong>.</p>
       <p><a class="btn" href="<?php echo app_base_url('dashboard.php'); ?>">Buka Dashboard</a>
-         <a class="btn" style="background:#64748b;margin-left:8px" href="<?php echo app_base_url('logout.php'); ?>">Logout</a></p>
+        <a class="btn" style="background:#64748b;margin-left:8px" href="<?php echo app_base_url('logout.php'); ?>">Logout</a></p>
     <?php else: ?>
       <p>Silakan login menggunakan akun SSO UNUGIRI.</p>
       <p><a class="btn" href="<?php echo htmlspecialchars($authorizeUrl); ?>">Login dengan SSO UNUGIRI</a></p>

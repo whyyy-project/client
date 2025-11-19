@@ -47,9 +47,11 @@ try {
     
     // 2. Dapatkan informasi user menggunakan access token
     $me = sso_me($accessToken);
-header('Content-Type: application/json');
-echo json_encode($me, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-exit;
+
+    // testing output
+    // header('Content-Type: application/json');
+    // echo json_encode($me, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    // exit;
 
     // 3. Simpan informasi login ke dalam session
     $_SESSION['isLoggedIn']   = true;           // Flag status login

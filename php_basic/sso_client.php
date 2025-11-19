@@ -185,13 +185,13 @@ function sso_me(string $accessToken): array {
     $json = json_decode($body, true) ?: [];
     $status = json_decode($status, true) ?: [];
     $error = json_decode($err, true) ?: [];
-    if ($status >= 400) {
-        $msg = $json['message'] ?? $json['error'] ?? ('HTTP ' . $status);
-        throw new RuntimeException('Fetch /me failed: ' . $msg);
-    }
+    // if ($status >= 400) {
+    //     $msg = $json['message'] ?? $json['error'] ?? ('HTTP ' . $status);
+    //     throw new RuntimeException('Fetch /me failed: ' . $msg);
+    // }
         return [
         'data'   => $json,
         'status' => $status,
-        'error'  => $err,
+        'error'  => $error,
     ];
 }
