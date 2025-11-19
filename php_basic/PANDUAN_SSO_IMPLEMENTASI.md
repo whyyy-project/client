@@ -35,10 +35,10 @@ File `config.php` berisi konfigurasi yang diperlukan:
 
 ```php
 return [
-    // URL dasar aplikasi client (dengan trailing slash)
-    'app_base_url' => 'http://localhost/client/php_basic/',
+    // URL dasar aplikasi client (web client)
+    'app_base_url' => 'http://localhost/client/',
     
-    // URL server SSO (tanpa trailing slash)
+    // URL server SSO (web server)
     'sso_base_url' => 'http://127.0.0.1:8000',
     
     // Kredensial client yang didaftarkan di SSO
